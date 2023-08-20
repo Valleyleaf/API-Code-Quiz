@@ -1,22 +1,174 @@
-#root{
+:root{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --black: #000000;
+    --white: #fcfcfc;
+    --ButtonBlue: #759be2;
+    --BorderBlue: #2b436e;
+    --BackgroundGrey: #6b6b6b;
+    --BodyGrey: #a7a7a7;
 
 }
 
-head{
 
-
+header{
+    background-color: var(--BackgroundGrey);
+    justify-content: baseline;
+    align-items: baseline;
+    width: 100%;
+    height: 150px;
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
 
+
+
+article{
+    padding: 50px 50px 50px 50px;
+    margin: 50px;
+    background-color: var(--BackgroundGrey);
+    width: 500px;
+    height: 500px;
 }
 
 
 footer{
-
+    background-color: var(--BackgroundGrey);
+    justify-content: baseline;
+    align-items: baseline;
+    width: 100%;
+    height: 150px;
 }
 
 /* Above is main framework stylings, below will be Classes */
 
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+}
+
+.container-polish{
+    margin: 20px;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 /* Above is classes, below will be ID's */
+
+#titleheaderclass{
+    font-size: 40px;
+    font-weight: bolder;
+    justify-content: flex-start;
+}
+
+#Timerclass{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+#startbutton{
+    background-color: var(--ButtonBlue);
+    border-color: var(--BorderBlue);
+    border-radius: 20px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    font-size: 50px;
+
+}
+
+/* Below is Media Screen */
+
+@media screen and (max-width: 980px){
+    body{
+        font-size: 16px;
+        background-color: var(--dashpurple);
+    }
+
+    .Main-Body-Img{
+        position: relative;
+        z-index: -1;
+        transform: translateY(200px);
+        overflow: hidden;
+    
+    }
+
+    article{
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        font-size: 20px;
+        background-color: var(--darkgrey);
+    }
+
+    .Main-Body-Img{
+        position: relative;
+        z-index: -1;
+        transform: translateY(520px);
+        overflow: hidden;
+    
+    }
+
+    article{
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 688px){
+    #title{
+        text-align: left;
+        justify-content: flex-start;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bolder;
+        font-style: italic;
+        font-size: 35px;
+    
+    }
+    
+    
+    header{
+        width: 100%;
+        height: 260px;
+        z-index: 2;
+    }
+    
+    
+    body{
+        font-size: 20px;
+    }
+
+    .Main-Body-Img{
+        position: relative;
+        z-index: -1;
+        transform: translateY(520px);
+        overflow: hidden;
+    
+    }
+
+    article{
+        margin: 0px;
+    }
+}
