@@ -87,6 +87,13 @@ footer{
 
 }
 
+#Winclass{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
 #startbutton{
     background-color: var(--ButtonBlue);
     border-color: var(--BorderBlue);

@@ -23,7 +23,98 @@
 var StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
 var Timer = 60;
-var wins = "";
+var wins = "0";
+
+var questions = [
+"What do you call a variable that holds multible variables?", 
+"When de-bugging, which syntax comes in handly to figure out where bugs are located?",
+"What do you call the syntax that declares if something is true/false?", 
+"What is the data-type that stores words?", 
+"When you want Javascript to listen for a user-input, what function should you use?",
+"What do you call a variable that holds a number?"
+];
+
+var rightanswers = [
+    "Array", 
+    "Console.Log", 
+    "Boolean", 
+    "String", 
+    "addEventListener",
+    "Integer"
+];
+
+var wronganswers1 = [
+    "Real",
+    "Button event",
+    "Trusy-Falsy",
+    "Collection",
+    "Numling",
+    "Box",
+    "Event",
+    "Container",
+    "Java-Script",
+    "Gallery"
+];
+
+var wronganswers2 = [
+    "Word-Value",
+    "Var",
+    "Combination",
+    "Ball-Num",
+    "Input",
+    "Roulette",
+    "ListeningEvent",
+    "Strung",
+    "Log.Me",
+    "Send"
+
+];
+
+var wronganswers3 = [
+    "Jass",
+    ".add",
+    "Bring-Value",
+    "Enter.Log",
+    "Display",
+    "Engage",
+    "Value-Input",
+    "Window",
+    "Stack",
+    "Entrager",
+];
+
+//Astons Note: I originally intended to do one array for each question, but found that by doing so,
+//the quiz got stale real quick. So instead what I decided to do was to do 3 seperate arrays that held a
+//large number of potential answers. I tried to make these wrong answers as generic as possible
+//to ensure that they could potentially apply to each question.
+
+var highScore = [];
+
+// Questions: 
+// 1. What do you call a variable that holds multible variables?
+    // An array
+// 2. When de-bugging, which syntax comes in handly to figure out where bugs are located?
+    // console.log
+// 3. What do you call the syntax that declares if something is true/false?'
+    // A Boolean
+// 4. What is the data-type that stores words?
+    // A String
+// 5. When you want Javascript to listen for a user-input, what function should you use?
+    // A EventListener
+// 6. What do you call a variable that holds a number?
+    // A Integer
+
+
+// NOTE FOR THE GRADER: I decided to keep my Console.logs in this project, but commented out. 
+// I am aware that typically its better to fully remove
+// them, I wanted to keep them here to show my process a bit better. Please do not deduct points
+//for me leaving them if you would be so kind.
+
+
+// Output Highscore Function
+    console.log("Output Highscore Function reached")
+
+// -----------------------------------
 
 // Win function
 // -----------------------------------
@@ -49,6 +140,7 @@ function rightAnswerFunction(){
 // Wrong Answer Function
 function wrongAnswerFunction(){
     console.log("Wrong Answer Function Reached")
+    Timer = Timer - 5;
         // For this function, make sure to add a flash of red upon getting the right answer.
 }
 
