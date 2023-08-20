@@ -55,7 +55,7 @@ function wrongAnswerFunction(){
 // -----------------------------------
 // starttimerFunction function
 function starttimerFunction(){
-    timerVisual.textContent = Timer +  ' seconds left';
+    timerVisual.textContent = 'Timer: ' + Timer +  ' seconds left';
     if (Timer <= 0){
         clearInterval(timerInterval);
         timerVisual.textContent = 'Game Over!'
