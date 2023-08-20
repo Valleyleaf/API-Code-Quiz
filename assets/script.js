@@ -21,12 +21,15 @@
 
 //Variables go here
 var StartGameButton = document.getElementById('startbutton')
+var timerVisual = document.getElementById('Timerclass')
 var Timer = 60;
+var wins = "";
 
 // Win function
 // -----------------------------------
 function winFunction(){
     console.log("Win Function Reached")
+    var wins = wins++;
 }
 
 // Game Over Function
@@ -38,6 +41,7 @@ function gameOverFunction(){
 //Right answer function/Reset Timer function
 function rightAnswerFunction(){
     console.log("Right Answer Function Reached")
+    // For this function, make sure to add a flash of green upon getting the right answer.
 }
 
 
@@ -45,33 +49,30 @@ function rightAnswerFunction(){
 // Wrong Answer Function
 function wrongAnswerFunction(){
     console.log("Wrong Answer Function Reached")
+        // For this function, make sure to add a flash of red upon getting the right answer.
 }
 
 // -----------------------------------
-// TimeDown function
-function timedown(){
-    var timerInterval = setInterval(function () { 
-        
-    }, 1000);
-}
-
-
-// -----------------------------------
-// Start Timer function
+// starttimerFunction function
 function starttimerFunction(){
-
-
-        if (Timer < 1){
-            gameOverFunction();
-            clearInterval(timerInterval);
-        } else {
-            timedown();
-            console.log("Timedown Function Reached")
-        }       
+    timerVisual.textContent = Timer +  ' seconds left';
+    if (Timer <= 0){
+        clearInterval(timerInterval);
+        timerVisual.textContent = 'Game Over!'
+        gameOverFunction;
+    } else {
+        console.log("Timer: " + Timer);
+        Timer--;
+    }
 }
 
 
+//Alot of the timer function aboved was taken from this source. I tried to make it as simple as possible.
+//I did not encounter any bugs when running it.
+//https://stackoverflow.com/questions/43796179/make-a-simple-javascript-timer
+
 // -----------------------------------
+
 // Generate answers function
 function generateanswers(){
     console.log("Generate Answers Function Reached")
@@ -91,12 +92,12 @@ function generatequestion(){
 // -----------------------------------
 //Start Game function
 function gamestart(){
+    var timerInterval = setInterval(starttimerFunction, 1000);
     console.log("Start button pressed")
     generatequestion();
     generateanswers();
     starttimerFunction();
 }
-
 
 StartGameButton.addEventListener("click", function(){
     gamestart();
