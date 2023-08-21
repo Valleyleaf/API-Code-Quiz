@@ -134,6 +134,7 @@ function winFunction(){
 // Game Over Function
 function gameOverFunction(){
     console.log("Game Over Function Reached")
+    clearInterval(Timer);
 }
 
 // -----------------------------------
@@ -177,46 +178,55 @@ function starttimerFunction(){
 
 function generatequiz(){
     console.log("Generate Quiz function reached.");
-        var answerTable = [generateanswers(), wronganswers1[Math.floor(Math.random() * wronganswers1.length)], wronganswers2[Math.floor(Math.random() * wronganswers2.length)], wronganswers3[wronganswers1[Math.floor(Math.random() * wronganswers3.length)]]]
+
+        var answerTable = [generateanswers(), 
+        wronganswers1[Math.floor(Math.random() * wronganswers1.length)], 
+        wronganswers2[Math.floor(Math.random() * wronganswers2.length)], 
+        wronganswers3[Math.floor(Math.random() * wronganswers3.length)]]
+
         return answerTable;
 }
 
 // -----------------------------------
 
 function generatebutton1(){
-    console.log("generatebutton function reached.")
+    console.log("generatebutton1 function reached.")
     // ----
-    let button1 = document.createElement("Button1");
-    button1.textContent = generatequiz()[0];
+    let button1 = document.createElement("button");
+    button1.textContent = generatequiz[0];
     button1.addEventListener("click", function(){
         console.log("Button 1 Clicked.")
+    document.body.appendChild(button);
     });
 }
 function generatebutton2(){
-    console.log("generatebutton function reached.")
+    console.log("generatebutton2 function reached.")
     // ----
-    let button1 = document.createElement("Button1");
-    button1.textContent = generatequiz()[1];
+    let button1 = document.createElement("button");
+    button1.textContent = generatequiz[1];
     button1.addEventListener("click", function(){
         console.log("Button 2 Clicked.")
+    document.body.appendChild(button);
     });
 }
 function generatebutton3(){
-    console.log("generatebutton function reached.")
+    console.log("generatebutton3 function reached.")
     // ----
-    let button1 = document.createElement("Button1");
-    button1.textContent = generatequiz()[2];
+    let button1 = document.createElement("button");
+    button1.textContent = generatequiz[2];
     button1.addEventListener("click", function(){
         console.log("Button 3 Clicked.")
+    document.body.appendChild(button);
     });
 }
 function generatebutton4(){
-    console.log("generatebutton function reached.")
+    console.log("generatebutton4 function reached.")
     // ----
-    let button1 = document.createElement("Button4");
-    button1.textContent = generatequiz()[3];
+    let button1 = document.createElement("button");
+    button1.textContent = generatequiz[3];
     button1.addEventListener("click", function(){
         console.log("Button 4 Clicked.")
+    document.body.appendChild(button);
     });
 }
 
@@ -270,12 +280,16 @@ function generateanswers(){
 // Generate question function
 function generatequestion(){
     console.log("Generate Questions Function Reached")
-    generateanswers();
     generatequiz();
+    console.log("---BREAK---")
     generatebutton1();
+    console.log("---BREAK---")
     generatebutton2();
+    console.log("---BREAK---")
     generatebutton3();
+    console.log("---BREAK---")
     generatebutton4();
+    console.log("---BREAK---")
     
 
 }
