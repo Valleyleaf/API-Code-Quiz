@@ -23,24 +23,31 @@
 var StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
 var Timer = 60;
-var wins = "0";
+var wins = 0;
+var currentQuestion = "";
 
 var questions = [
+    // Question 0
 "What do you call a variable that holds multible variables?", 
-"When de-bugging, which syntax comes in handly to figure out where bugs are located?",
+    // Question 1
+"When de-bugging, which syntax comes in handly to figure out where bugs are located?", 
+    // Question 2
 "What do you call the syntax that declares if something is true/false?", 
+    // Question 3
 "What is the data-type that stores words?", 
+    // Question 4
 "When you want Javascript to listen for a user-input, what function should you use?",
+    // Question 5
 "What do you call a variable that holds a number?"
 ];
 
 var rightanswers = [
-    "Array", 
-    "Console.Log", 
-    "Boolean", 
-    "String", 
+    "array", 
+    "console.Log", 
+    "boolean", 
+    "string", 
     "addEventListener",
-    "Integer"
+    "integer"
 ];
 
 var wronganswers1 = [
@@ -121,6 +128,7 @@ var highScore = [];
 function winFunction(){
     console.log("Win Function Reached")
     var wins = wins++;
+    wins.textContent = wins;
 }
 
 // Game Over Function
@@ -132,7 +140,7 @@ function gameOverFunction(){
 //Right answer function/Reset Timer function
 function rightAnswerFunction(){
     console.log("Right Answer Function Reached")
-    // For this function, make sure to add a flash of green upon getting the right answer.
+    // Self-Note: For this function, make sure to add a flash of green upon getting the right answer.
 }
 
 
@@ -141,7 +149,7 @@ function rightAnswerFunction(){
 function wrongAnswerFunction(){
     console.log("Wrong Answer Function Reached")
     Timer = Timer - 5;
-        // For this function, make sure to add a flash of red upon getting the right answer.
+        // Self-Note: For this function, make sure to add a flash of red upon getting the right answer.
 }
 
 // -----------------------------------
@@ -149,7 +157,7 @@ function wrongAnswerFunction(){
 function starttimerFunction(){
     timerVisual.textContent = 'Timer: ' + Timer +  ' seconds left';
     if (Timer <= 0){
-        clearInterval(timerInterval);
+        clearInterval(Timer);
         timerVisual.textContent = 'Game Over!'
         gameOverFunction;
     } else {
@@ -165,16 +173,68 @@ function starttimerFunction(){
 
 // -----------------------------------
 
-// Generate answers function
-function generateanswers(){
-    console.log("Generate Answers Function Reached")
+// Generate Quiz Function
+
+function generatequiz(){
+    console.log("Generate Quiz function reached.");
+        var answerTable = [generateanswers(), wronganswers1[Math.floor(Math.random() * wronganswers1.length)], wronganswers2[Math.floor(Math.random() * wronganswers2.length)], wronganswers3[wronganswers1[Math.floor(Math.random() * wronganswers3.length)]]]
+        return answerTable;
 }
 
+// -----------------------------------
+
+// Generate answers function
+function generateanswers(){
+    let currentQuestion = Math.floor(Math.random() * 5);
+    console.log("Current question value: " + currentQuestion)
+    console.log("Generate Answers Function Reached")
+    if (currentQuestion === 0){
+        console.log("Question: " + "0: " + questions[0]);
+        let TheRightAnswer = rightanswers[0]
+        delete rightanswers[0];
+        return TheRightAnswer;
+    } else if (currentQuestion === 1){
+        console.log("Question: " + "1: " + questions[1]);
+        let TheRightAnswer = rightanswers[1]
+        delete rightanswers[1];
+        return TheRightAnswer;
+    } else if (currentQuestion === 2){
+        console.log("Question: " + "2: " + questions[2]);
+        let TheRightAnswer = rightanswers[2]
+        delete rightanswers[2];
+        return TheRightAnswer;
+    } else if (currentQuestion === 3){
+        console.log("Question: " + "3: " + questions[3]);
+        let TheRightAnswer = rightanswers[3]
+        delete rightanswers[3];
+        return TheRightAnswer;
+    } else if (currentQuestion === 4){
+        console.log("Question: " + "4: " + questions[4]);
+        let TheRightAnswer = rightanswers[4]
+        delete rightanswers[4];
+        return TheRightAnswer;
+    } else if (currentQuestion === 5){
+        console.log("Question: " +  "5: " + questions[5]);
+        let TheRightAnswer = rightanswers[5]
+        delete rightanswers[5];
+        return TheRightAnswer;
+    } else{
+        console.log("Removed question found. Regenerating question.");
+        generateanswers();
+    }
+}
+
+// Aston Note:
+// This function is responsible for 3 things. 1. It checks which question has been chosen for the user. 2. It aligns the right answer with the current question displayed. 3. It removes the question from the QuestionsArray so
+// that it doesn't repeat the same question again. This is probably not the optimal way to do this but it's what I know to do, and I find that it makes the code flexable if I wish to change something in the future.
 
 // -----------------------------------
 // Generate question function
 function generatequestion(){
     console.log("Generate Questions Function Reached")
+    
+    generateanswers();
+    
 
 }
 
@@ -186,8 +246,8 @@ function generatequestion(){
 function gamestart(){
     var timerInterval = setInterval(starttimerFunction, 1000);
     console.log("Start button pressed")
+    StartGameButton.remove();
     generatequestion();
-    generateanswers();
     starttimerFunction();
 }
 

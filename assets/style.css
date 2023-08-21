@@ -55,6 +55,12 @@ footer{
     height: 80%;
 }
 
+.center-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .flex-container{
     display: flex;
     flex-direction: column;
@@ -66,8 +72,6 @@ footer{
     margin: 20px;
     border: 2px solid var(--black);
     border-radius: 5px;
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -101,7 +105,6 @@ footer{
     margin: 10px 10px 10px 10px;
     padding: 10px;
     font-size: 50px;
-
 }
 
 /* Below is Media Screen */
