@@ -183,6 +183,43 @@ function generatequiz(){
 
 // -----------------------------------
 
+function generatebutton1(){
+    console.log("generatebutton function reached.")
+    // ----
+    let button1 = document.createElement("Button1");
+    button1.textContent = generatequiz()[0];
+    button1.addEventListener("click", function(){
+        console.log("Button 1 Clicked.")
+    });
+}
+function generatebutton2(){
+    console.log("generatebutton function reached.")
+    // ----
+    let button1 = document.createElement("Button1");
+    button1.textContent = generatequiz()[1];
+    button1.addEventListener("click", function(){
+        console.log("Button 2 Clicked.")
+    });
+}
+function generatebutton3(){
+    console.log("generatebutton function reached.")
+    // ----
+    let button1 = document.createElement("Button1");
+    button1.textContent = generatequiz()[2];
+    button1.addEventListener("click", function(){
+        console.log("Button 3 Clicked.")
+    });
+}
+function generatebutton4(){
+    console.log("generatebutton function reached.")
+    // ----
+    let button1 = document.createElement("Button4");
+    button1.textContent = generatequiz()[3];
+    button1.addEventListener("click", function(){
+        console.log("Button 4 Clicked.")
+    });
+}
+
 // Generate answers function
 function generateanswers(){
     let currentQuestion = Math.floor(Math.random() * 5);
@@ -220,7 +257,8 @@ function generateanswers(){
         return TheRightAnswer;
     } else{
         console.log("Removed question found. Regenerating question.");
-        generateanswers();
+        generateanswers(); 
+        // Above loops back in case quiz randomizer finds an empty slot that has already been answered.
     }
 }
 
@@ -232,8 +270,12 @@ function generateanswers(){
 // Generate question function
 function generatequestion(){
     console.log("Generate Questions Function Reached")
-    
     generateanswers();
+    generatequiz();
+    generatebutton1();
+    generatebutton2();
+    generatebutton3();
+    generatebutton4();
     
 
 }
