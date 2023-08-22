@@ -55,6 +55,13 @@ footer{
     height: 80%;
 }
 
+.questiontext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
 .center-buttons{
     display: flex;
     justify-content: center;
