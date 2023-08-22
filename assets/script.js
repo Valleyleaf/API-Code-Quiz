@@ -27,6 +27,7 @@ var StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
 var Timer = 60;
 var wins = 0;
+var Gamestart = 0;
 var highScore = [];
 
 // "What do you call a variable that holds multible variables?", 
@@ -97,10 +98,12 @@ function starttimerFunction(){
         timerVisual.textContent = 'Game Over!'
         gameOverFunction;
     } else {
-        // console.log("Timer: " + Timer);
+        console.log("Timer: " + Timer);
         Timer--;
     }
 }
+
+
 
 
 //Alot of the timer function aboved was taken from this source. I tried to make it as simple as possible.
@@ -116,10 +119,11 @@ function generatequestion(){
 function gamestart(){
     var timerInterval = setInterval(starttimerFunction, 1000);
     console.log("Start button pressed")
+    let gamestart = 1;
+    console.log(gamestart);
     StartGameButton.remove();
     generatequestion();
     starttimerFunction();
-    showquestionFunction();
 
 }
 
