@@ -25,29 +25,39 @@
 //Variables go here
 var StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
+var currentQuestionText = document.getElementById('question')
 var Timer = 60;
 var wins = 0;
 var Gamestart = 0;
 var highScore = [];
+var questionStep = -1;
 
-// "What do you call a variable that holds multible variables?", 
-var question1 = [
+var questionarray = [
+    "What do you call a variable that holds multible variables?",
+    "When de-bugging, which syntax comes in handly to figure out where bugs are located?", 
+    "What do you call the syntax that declares if something is true/false?",
+    "What is the data-type that stores words?",
+    "What do you call a variable that holds a number?"
+];
+
+// "What do you call a variable that holds multible variables?",
+var question1answers = [
     "array", "box", "container", "combination"
 ]
 // "When de-bugging, which syntax comes in handly to figure out where bugs are located?", 
-var question2 = [
+var question2answers = [
     "Log.Issue","Log.Console","Console.Log","find.bug"
 ]
 // "What do you call the syntax that declares if something is true/false?", 
-var question3 = [
+var question3answers = [
     "boolean","Truthy-falsy","ListeningEvent","Value"
 ]
 // "What is the data-type that stores words?", 
-var question4 = [
+var question4answers = [
     "integer","Display","Word","String"
 ]
 // "What do you call a variable that holds a number?"
-var question5 = [
+var question5answers = [
     "integer","Real","Number","Var"
 ]
 
@@ -113,6 +123,11 @@ function starttimerFunction(){
 // Generate question function
 function generatequestion(){
     console.log("Generate Questions Function Reached")
+    questionStep++;
+    console.log("questionStep = " + questionStep)
+    var currentQuestionText = questionarray[questionStep]
+        return currentQuestionText;
+    
 }
 // -----------------------------------
 //Start Game function
