@@ -26,6 +26,7 @@
 const StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
 var currentQuestionText = document.getElementById('question')
+var wins = document.getElementById('Winclass')
 
 var displayQuestion1 = document.getElementById('button1')
 var displayQuestion2 = document.getElementById('button2')
@@ -33,9 +34,9 @@ var displayQuestion3 = document.getElementById('button3')
 var displayQuestion4 = document.getElementById('button4')
 
 var Timer = 60;
-var wins = 0;
+var winscounter = 0;
 var Gamestart = 0;
-var highScore = [];
+var highScoreArray = [];
 var questionStep = 0;
 let userAnswer = null;
 
@@ -99,18 +100,23 @@ var question5answers = [
 
 // REMEMBER TO STORE LOCAL STORAGE
 
+function highScore(){
+    console.log("highScore Function Reached")
 
-// Output Highscore Function
-    console.log("Output Highscore Function reached")
-
-// -----------------------------------
+}
 
 // Win function
 // -----------------------------------
 function winFunction(){
     console.log("Win Function Reached")
-    var wins = wins++;
+    winscounter++;
     wins.textContent = wins;
+    console.log("Wins: " + wins)
+    button1.remove();
+    button2.remove();
+    button3.remove();
+    button4.remove();
+    highScore();
 }
 // Game Over Function
 function gameOverFunction(){
@@ -137,7 +143,7 @@ function rightAnswerFunction(){
 function wrongAnswerFunction(){
     console.log("Wrong Answer Function Reached")
     Timer = Timer - 5;
-        // Self-Note: For this function, make sure to add a flash of red upon getting the right answer.
+    // Self-Note: For this function, make sure to add a flash of red upon getting the right answer.
 }
 // -----------------------------------
 // starttimerFunction function
@@ -214,7 +220,7 @@ buttonarray = [
         userAnswer = 2;
     },    function(){
         console.log("Answer Button 4 Pressed")
-        userAnswer = 4;
+        userAnswer = 3;
     },
 
 ]
@@ -245,6 +251,7 @@ button4.addEventListener("click", function() {
     buttonarray[3]();
     answerChecker();
 });
+
 
 // -----------------------------------
 
@@ -296,6 +303,9 @@ function answerChecker()
         }
     }
 }
+
+//The above function checks for the right answer. I originally wanted to try and do a more optimized function that would check for a boolean but
+//I couldn't get it to work and I ran out of time.
 
 function changequestionfunction(){
     currentQuestionText.textContent = generatequestion(questionStep);
