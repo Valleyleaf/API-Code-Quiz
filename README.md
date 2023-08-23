@@ -16,12 +16,13 @@ made my code more and more complex. I believe that with a bit more time, I would
 ## Installation
 
 Open in browser of your choice.
+![example image](https://github.com/Valleyleaf/API-Code-Quiz/assets/137734906/f88f78ef-92be-4b7d-8861-7f70e21b54e1)
 
 ## Usage
 
 Press Start. Good luck!
 
-    ![alt text](assets/Images/example%20image.png)
+
 
 
 ## Credits
