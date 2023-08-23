@@ -27,6 +27,8 @@ const StartGameButton = document.getElementById('startbutton')
 var timerVisual = document.getElementById('Timerclass')
 var currentQuestionText = document.getElementById('question')
 var wins = document.getElementById('Winclass')
+var highscoreForm = document.getElementById('HighScoreFormClass')
+
 
 var displayQuestion1 = document.getElementById('button1')
 var displayQuestion2 = document.getElementById('button2')
@@ -36,7 +38,7 @@ var displayQuestion4 = document.getElementById('button4')
 var Timer = 60;
 var winscounter = 0;
 var Gamestart = 0;
-var highScoreArray = [];
+var highScores = [];
 var questionStep = 0;
 let userAnswer = null;
 
@@ -100,10 +102,37 @@ var question5answers = [
 
 // REMEMBER TO STORE LOCAL STORAGE
 
-function highScore(){
-    console.log("highScore Function Reached")
+// Highscore Function
 
+function addHighScoreFunction(UserInput) {
+    let highScores = JSON.parse(localStorage.getItem("HighScores")) || [];
+    highScores.push(UserInput);
+    localStorage.setItem("HighScores", JSON.stringify(highScores));
+    localStorage.setItem("Score", JSON.stringify(60 - Timer));
+    highscoreForm.textContent = "";
+    for (let i = 0; i < highScores.length; i++) {
+        highscoreForm.textContent += highScores[i] + "\n";
+    }
 }
+
+function highScore() {
+    console.log("highScore Function Reached");
+    let person = prompt("Please enter your name");
+    if (person === null || person === "") {
+        console.log("User cancelled the prompt.");
+    } else {
+        addHighScoreFunction(person);
+        console.log("addHighScoreFunction Function Reached");
+    }
+}
+
+// https://www.w3schools.com/js/js_popup.asp
+
+// -----------------------------------
+
+
+
+
 
 // Win function
 // -----------------------------------
