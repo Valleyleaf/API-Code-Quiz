@@ -5,7 +5,7 @@
 ## Description
 
 This project was created as my first Javascript project that was completed without any pre-existing code. When I started working on this project, I was looking to do a dynamic quiz that would randomize not only the order of the questions, but also the order of the answers, and which answers were available aside from the "correct" answer. I sadly ran into a wall with my original code (Refer to Script - Copy.js) and was forced to abandon it due to time constraints. I tried to simplify my code but contined to run into issues that
-made my code more and more complex. I believe that with a bit more time, I would have been able to produce a quality script. What I have learned from this project is two things.
+made my code more and more complex. I believe that with a bit more time, I would have been able to produce a quality script. What I have learned from this project is three things.
 
 1. The importance of psudo-coding. I made some basic psudo-code on where certain functions were to go, only to realise I had greatly underestimated the amount of functions needed (See Script -Copy.js as it has very bloated functions). Going forward, I need to plan my projects better.
 
